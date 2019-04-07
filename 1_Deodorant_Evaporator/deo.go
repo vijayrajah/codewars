@@ -11,12 +11,10 @@ func Evaporator(content float64, evapPerDay int, threshold int) int {
 	day := 0
 
 	for ; ; day++ {
+
 		rem = rem - (rem * (float64(evapPerDay) / float64(100)))
 
 		t := (1 - (rem / content)) * 100
-		// t := content - ((content - rem) / 100)
-
-		// fmt.Println("Reduction is ", reduction, " Rem is ", rem, "t is ", t, "day is ", day)
 
 		if int(100-t) < threshold {
 			break
